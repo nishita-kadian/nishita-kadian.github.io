@@ -5,6 +5,8 @@
 ### Hosted with GitHub Pages. Work in progress.
 ### Pinned repositories:
 
-- [Leetcode Profile](https://leetcode.com/NK04)
-  - [Leetcode Solutions](https://nishita-kadian.github.io/leetcode/)
+- **Profiles**
+  - [Hackerrank Profile](https://www.hackerrank.com/nkadian_be19)
+  - [Leetcode Profile](https://leetcode.com/NK04)
+- [Leetcode Solutions Repo](https://nishita-kadian.github.io/leetcode/)
 - [1page Résumé](https://nishita-kadian.github.io/assets/Nishita_Kadian_1pg_Resume.pdf)
