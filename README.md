@@ -10,3 +10,4 @@
   - [Leetcode Profile](https://leetcode.com/NK04)
 - [Leetcode Solutions Repo](https://nishita-kadian.github.io/leetcode/)
 - [1page Résumé](https://nishita-kadian.github.io/assets/Nishita_Kadian_1pg_Resume.pdf)
+- [Movie Explorer Project](https://github.com/nishita-kadian/MovieExplorer)
