@@ -9,5 +9,5 @@
   - [Hackerrank Profile](https://www.hackerrank.com/nkadian_be19)
   - [Leetcode Profile](https://leetcode.com/NK04)
 - [Leetcode Solutions Repo](https://nishita-kadian.github.io/leetcode/)
-- [1page Résumé](https://nishita-kadian.github.io/assets/Nishita_Kadian_1pg_Resume.pdf)
+- [1page Résumé](https://nishita-kadian.github.io/assets/Single_page_NK_resume.pdf)
 - [Movie Explorer Project](https://github.com/nishita-kadian/MovieExplorer)
