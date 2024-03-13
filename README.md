@@ -11,3 +11,4 @@
 - [Leetcode Solutions Repo](https://nishita-kadian.github.io/leetcode/)
 - [1page Résumé](https://nishita-kadian.github.io/assets/Nishita_Kadian_Resume.pdf)
 - [Movie Explorer Project](https://github.com/nishita-kadian/MovieExplorer)
+- [Fullstack project using Django](https://github.com/nishita-kadian/algo_ide)
