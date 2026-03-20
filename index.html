@@ -43,7 +43,8 @@ nav {
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 2.5rem;
   padding: 0 max(2rem, 5vw);
   height: 58px;
   background: rgba(13,13,15,0.85);
@@ -613,6 +614,8 @@ section {
 .contact-arrow {
   font-size: 14px;
   color: var(--border2);
+  display: inline-block;
+  transform: rotate(-45deg);
 }
 
 .project-link {
@@ -709,7 +712,7 @@ footer {
 <body>
 
 <!-- NAV -->
-<nav style="justify-content:center;">
+<nav>
   <ul class="nav-links">
     <li><a href="#experience" onclick="scrollToSection('experience');return false;">Experience</a></li>
     <li><a href="#skills" onclick="scrollToSection('skills');return false;">Skills</a></li>
@@ -730,11 +733,11 @@ footer {
     millions of users, and owned peak-traffic reliability at scale.
   </p>
   <div class="hero-actions">
-    <button class="btn-primary" onclick="window.open('mailto:nishita.kadian@gmail.com','_self')">Get in touch →</button>
-    <a href="https://in.linkedin.com/in/nishita-kadian-9542b7202" target="_blank" rel="noopener" class="btn-ghost">LinkedIn →</a>
-    <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" class="btn-ghost">LeetCode →</a>
-    <a href="https://github.com/nishita-kadian" target="_blank" rel="noopener" class="btn-ghost">GitHub →</a>
-    <a href="https://www.hackerrank.com/nkadian_be19" target="_blank" rel="noopener" class="btn-ghost">HackerRank →</a>
+    <button class="btn-primary" onclick="window.open('mailto:nishita.kadian@gmail.com','_self')">Get in touch <span style="display:inline-block;transform:rotate(-45deg);">→</span></button>
+    <a href="https://in.linkedin.com/in/nishita-kadian-9542b7202" target="_blank" rel="noopener" class="btn-ghost">LinkedIn <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
+    <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" class="btn-ghost">LeetCode <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
+    <a href="https://github.com/nishita-kadian" target="_blank" rel="noopener" class="btn-ghost">GitHub <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
+    <a href="https://www.hackerrank.com/nkadian_be19" target="_blank" rel="noopener" class="btn-ghost">HackerRank <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
   </div>
   <div class="hero-stats">
     <div class="stat-item">
@@ -898,7 +901,7 @@ footer {
         <span class="stack-chip">Google Drive v3 API</span>
         <span class="stack-chip">Obsidian Plugin</span>
       </div>
-      <a href="https://github.com/nishita-kadian/gdrive-sync-plugin" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      <a href="https://github.com/nishita-kadian/gdrive-sync-plugin" target="_blank" rel="noopener" class="project-link">View on GitHub <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
     </div>
     <div class="project-card">
       <div class="project-tag">Full Stack · LeetCode-style · 2023</div>
@@ -910,7 +913,7 @@ footer {
         <span class="stack-chip">Docker</span>
         <span class="stack-chip">AWS</span>
       </div>
-      <a href="https://github.com/nishita-kadian/algo_ide" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      <a href="https://github.com/nishita-kadian/algo_ide" target="_blank" rel="noopener" class="project-link">View on GitHub <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
     </div>
     <div class="project-card">
       <div class="project-tag">Capstone · Deep Learning · 2023</div>
@@ -922,7 +925,7 @@ footer {
         <span class="stack-chip">UNet</span>
         <span class="stack-chip">Deep Learning</span>
       </div>
-      <a href="https://github.com/nishita-kadian/Project-Reports/blob/main/DL%20based%20High%20Reso%20FPM/CAPSTONE%20PROJECT.pdf" target="_blank" rel="noopener" class="project-link">View Report →</a>
+      <a href="https://github.com/nishita-kadian/Project-Reports/blob/main/DL%20based%20High%20Reso%20FPM/CAPSTONE%20PROJECT.pdf" target="_blank" rel="noopener" class="project-link">View Report <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
     </div>
     <div class="project-card">
       <div class="project-tag">Backend · 2023</div>
@@ -934,7 +937,7 @@ footer {
         <span class="stack-chip">Python</span>
         <span class="stack-chip">HTML/CSS/JS</span>
       </div>
-      <a href="https://github.com/nishita-kadian/MovieExplorer" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+      <a href="https://github.com/nishita-kadian/MovieExplorer" target="_blank" rel="noopener" class="project-link">View on GitHub <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
     </div>
   </div>
 </section>
@@ -971,14 +974,14 @@ footer {
       <div class="achievement-icon">⌥</div>
       <div class="achievement-text">
         <strong>800+ LeetCode Problems</strong>
-        Consistent competitive programming practice, solutions hosted on GitHub. <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">LeetCode profile</a> · <a href="https://nishita-kadian.github.io/leetcode/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Solutions</a>
+        Consistent competitive programming practice, solutions hosted on GitHub. <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">LeetCode profile <span style="display:inline-block;transform:rotate(-45deg);">→</span></a> · <a href="https://nishita-kadian.github.io/leetcode/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Solutions <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>
       </div>
     </div>
     <div class="achievement-item">
       <div class="achievement-icon">◈</div>
       <div class="achievement-text">
         <strong>HackerRank Gold Badges &amp; Certifications</strong>
-        Earned maximum star gold badges in Problem Solving, C++ and SQL. Certified in <a href="https://www.hackerrank.com/certificates/c595bd823190" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Problem Solving (Basic)</a> and <a href="https://www.hackerrank.com/certificates/02d1d8d60eaf" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Intermediate</a>.
+        Earned maximum star gold badges in Problem Solving, C++ and SQL. Certified in <a href="https://www.hackerrank.com/certificates/c595bd823190" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Problem Solving (Basic) <span style="display:inline-block;transform:rotate(-45deg);">→</span></a> and <a href="https://www.hackerrank.com/certificates/02d1d8d60eaf" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Intermediate <span style="display:inline-block;transform:rotate(-45deg);">→</span></a>.
       </div>
     </div>
     <div class="achievement-item">
