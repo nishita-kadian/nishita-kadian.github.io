@@ -681,8 +681,15 @@ footer {
 @media (max-width: 700px) {
   .exp-item { grid-template-columns: 1fr; gap: 0.8rem; }
   .contact-inner { grid-template-columns: 1fr; }
-  .hero-stats { gap: 2rem; }
-  .nav-links { display: none; }
+  .hero-stats { gap: 0; }
+  .stat-item { padding: 0 1.2rem 0 0; margin-right: 1.2rem; }
+  .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .nav-links a { font-size: 11px; }
+  .achievements-list { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr !important; }
+  .contact-bar { margin: 0 1rem; }
+  .contact-bar a { padding: 10px 12px; font-size: 10px; }
 }
 
 /* ANIMATIONS */
@@ -702,17 +709,14 @@ footer {
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">NK.dev</a>
-  <div style="display:flex;align-items:center;gap:1.5rem;">
-    <ul class="nav-links">
-      <li><a href="#experience" onclick="scrollToSection('experience');return false;">Experience</a></li>
-      <li><a href="#skills" onclick="scrollToSection('skills');return false;">Skills</a></li>
-      <li><a href="#projects" onclick="scrollToSection('projects');return false;">Projects</a></li>
-      <li><a href="#achievements" onclick="scrollToSection('achievements');return false;">Achievements</a></li>
-      <li><a href="#contact" onclick="scrollToSection('contact');return false;">Contact</a></li>
-    </ul>
-  </div>
+<nav style="justify-content:center;">
+  <ul class="nav-links">
+    <li><a href="#experience" onclick="scrollToSection('experience');return false;">Experience</a></li>
+    <li><a href="#skills" onclick="scrollToSection('skills');return false;">Skills</a></li>
+    <li><a href="#projects" onclick="scrollToSection('projects');return false;">Projects</a></li>
+    <li><a href="#achievements" onclick="scrollToSection('achievements');return false;">Achievements</a></li>
+    <li><a href="#contact" onclick="scrollToSection('contact');return false;">Contact</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
@@ -726,11 +730,11 @@ footer {
     millions of users, and owned peak-traffic reliability at scale.
   </p>
   <div class="hero-actions">
-    <button class="btn-primary" onclick="window.open('mailto:nishita.kadian@gmail.com','_self')">Get in touch ↗</button>
-    <a href="https://in.linkedin.com/in/nishita-kadian-9542b7202" target="_blank" rel="noopener" class="btn-ghost">LinkedIn ↗</a>
-    <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" class="btn-ghost">LeetCode ↗</a>
-    <a href="https://github.com/nishita-kadian" target="_blank" rel="noopener" class="btn-ghost">GitHub ↗</a>
-    <a href="https://www.hackerrank.com/nkadian_be19" target="_blank" rel="noopener" class="btn-ghost">HackerRank ↗</a>
+    <button class="btn-primary" onclick="window.open('mailto:nishita.kadian@gmail.com','_self')">Get in touch →</button>
+    <a href="https://in.linkedin.com/in/nishita-kadian-9542b7202" target="_blank" rel="noopener" class="btn-ghost">LinkedIn →</a>
+    <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" class="btn-ghost">LeetCode →</a>
+    <a href="https://github.com/nishita-kadian" target="_blank" rel="noopener" class="btn-ghost">GitHub →</a>
+    <a href="https://www.hackerrank.com/nkadian_be19" target="_blank" rel="noopener" class="btn-ghost">HackerRank →</a>
   </div>
   <div class="hero-stats">
     <div class="stat-item">
@@ -894,7 +898,7 @@ footer {
         <span class="stack-chip">Google Drive v3 API</span>
         <span class="stack-chip">Obsidian Plugin</span>
       </div>
-      <a href="https://github.com/nishita-kadian/gdrive-sync-plugin" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+      <a href="https://github.com/nishita-kadian/gdrive-sync-plugin" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
     </div>
     <div class="project-card">
       <div class="project-tag">Full Stack · LeetCode-style · 2023</div>
@@ -906,7 +910,7 @@ footer {
         <span class="stack-chip">Docker</span>
         <span class="stack-chip">AWS</span>
       </div>
-      <a href="https://github.com/nishita-kadian/algo_ide" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+      <a href="https://github.com/nishita-kadian/algo_ide" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
     </div>
     <div class="project-card">
       <div class="project-tag">Capstone · Deep Learning · 2023</div>
@@ -918,7 +922,7 @@ footer {
         <span class="stack-chip">UNet</span>
         <span class="stack-chip">Deep Learning</span>
       </div>
-      <a href="https://github.com/nishita-kadian/Project-Reports/blob/main/DL%20based%20High%20Reso%20FPM/CAPSTONE%20PROJECT.pdf" target="_blank" rel="noopener" class="project-link">View Report ↗</a>
+      <a href="https://github.com/nishita-kadian/Project-Reports/blob/main/DL%20based%20High%20Reso%20FPM/CAPSTONE%20PROJECT.pdf" target="_blank" rel="noopener" class="project-link">View Report →</a>
     </div>
     <div class="project-card">
       <div class="project-tag">Backend · 2023</div>
@@ -930,7 +934,7 @@ footer {
         <span class="stack-chip">Python</span>
         <span class="stack-chip">HTML/CSS/JS</span>
       </div>
-      <a href="https://github.com/nishita-kadian/MovieExplorer" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+      <a href="https://github.com/nishita-kadian/MovieExplorer" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
     </div>
   </div>
 </section>
@@ -967,14 +971,14 @@ footer {
       <div class="achievement-icon">⌥</div>
       <div class="achievement-text">
         <strong>800+ LeetCode Problems</strong>
-        Consistent competitive programming practice, solutions hosted on GitHub. <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">LeetCode profile ↗</a> · <a href="https://nishita-kadian.github.io/leetcode/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Solutions ↗</a>
+        Consistent competitive programming practice, solutions hosted on GitHub. <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">LeetCode profile</a> · <a href="https://nishita-kadian.github.io/leetcode/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Solutions</a>
       </div>
     </div>
     <div class="achievement-item">
       <div class="achievement-icon">◈</div>
       <div class="achievement-text">
         <strong>HackerRank Gold Badges &amp; Certifications</strong>
-        Earned maximum star gold badges in Problem Solving, C++ and SQL. Certified in <a href="https://www.hackerrank.com/certificates/c595bd823190" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Problem Solving (Basic) ↗</a> and <a href="https://www.hackerrank.com/certificates/02d1d8d60eaf" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Intermediate ↗</a>.
+        Earned maximum star gold badges in Problem Solving, C++ and SQL. Certified in <a href="https://www.hackerrank.com/certificates/c595bd823190" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Problem Solving (Basic)</a> and <a href="https://www.hackerrank.com/certificates/02d1d8d60eaf" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Intermediate</a>.
       </div>
     </div>
     <div class="achievement-item">
@@ -1015,23 +1019,23 @@ footer {
     <div class="contact-right">
       <button class="contact-link" onclick="window.open('mailto:nishita.kadian@gmail.com','_self')" style="background:var(--bg);width:100%;text-align:left;border:none;cursor:pointer;">
         <span class="contact-link-label">Email</span>
-        <span class="contact-arrow">↗</span>
+        <span class="contact-arrow">→</span>
       </button>
-      <a href="https://in.linkedin.com/in/nishita-kadian-9542b7202" target="_blank" rel="noopener" class="contact-link">
+      <a href="https://in.linkedin.com/in/nishita-kadian-9542b7202" class="contact-link">
         <span class="contact-link-label">LinkedIn</span>
-        <span class="contact-arrow">↗</span>
+        <span class="contact-arrow">→</span>
       </a>
-      <a href="https://github.com/nishita-kadian" target="_blank" rel="noopener" class="contact-link">
+      <a href="https://github.com/nishita-kadian" class="contact-link">
         <span class="contact-link-label">GitHub</span>
-        <span class="contact-arrow">↗</span>
+        <span class="contact-arrow">→</span>
       </a>
-      <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" class="contact-link">
+      <a href="https://leetcode.com/NK04/" class="contact-link">
         <span class="contact-link-label">LeetCode</span>
-        <span class="contact-arrow">↗</span>
+        <span class="contact-arrow">→</span>
       </a>
-      <a href="https://www.hackerrank.com/nkadian_be19" target="_blank" rel="noopener" class="contact-link">
+      <a href="https://www.hackerrank.com/nkadian_be19" class="contact-link">
         <span class="contact-link-label">HackerRank</span>
-        <span class="contact-arrow">↗</span>
+        <span class="contact-arrow">→</span>
       </a>
     </div>
   </div>
