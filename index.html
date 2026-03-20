@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nishita Kadian — Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d0d0f;
+  --bg2: #141416;
+  --bg3: #1c1c20;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.13);
+  --text: #f0ede8;
+  --muted: #8a8780;
+  --accent: #e8d5a3;
+  --accent2: #c4a96d;
+  --green: #4caf85;
+  --tag-bg: rgba(232,213,163,0.08);
+  --tag-border: rgba(232,213,163,0.2);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Geist', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(2rem, 5vw);
+  height: 58px;
+  background: rgba(13,13,15,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--text); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px max(2rem, 8vw) 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(232,213,163,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--accent2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent2);
+}
+
+.hero-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 1.0;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.2em;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-title {
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: var(--muted);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  margin-bottom: 2.5rem;
+}
+
+.hero-desc {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.hero-desc strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--accent);
+  color: #0d0d0f !important;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: transparent;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border: 1px solid var(--border2);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.stat-item {
+  text-align: left;
+  padding: 0 2.5rem 0 0;
+  margin-right: 2.5rem;
+  border-right: 1px solid var(--border2);
+}
+
+.stat-item:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.stat-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.2rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* SECTION SHELL */
+section {
+  padding: 100px max(2rem, 8vw);
+  border-top: 1px solid var(--border);
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.section-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent2);
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400;
+}
+
+/* EXPERIENCE */
+.exp-list { display: flex; flex-direction: column; gap: 0; }
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0 3rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.exp-item:first-child { border-top: 1px solid var(--border); }
+.exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.exp-meta {}
+
+.exp-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.exp-company {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.exp-award {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+  margin-top: 10px;
+  padding: 4px 8px;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.exp-loc {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.exp-content {}
+
+.exp-role {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.exp-bullets li {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  padding-left: 1.2em;
+  position: relative;
+}
+
+.exp-bullets li::before {
+  content: '-';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.exp-bullets li strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.exp-subbullets {
+  list-style: none;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-left: 1px solid var(--border2);
+}
+
+.exp-subbullets li {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  padding-left: 0.8em;
+  position: relative;
+}
+
+.exp-subbullets li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.exp-subbullets li strong {
+  color: var(--text);
+  font-weight: 400;
+}
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  background: rgba(76,175,133,0.1);
+  border: 1px solid rgba(76,175,133,0.2);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--green);
+  margin-right: 6px;
+  letter-spacing: 0.03em;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  width: 100%;
+}
+
+.skill-group {
+  background: var(--bg);
+  padding: 1.5rem 2rem;
+  transition: background 0.2s;
+}
+
+.skill-group:hover { background: var(--bg2); }
+
+.skill-group-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  padding: 5px 12px;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+.skill-tag:hover {
+  border-color: var(--accent2);
+  color: var(--text);
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.project-card {
+  background: var(--bg);
+  padding: 2rem 2rem 2.5rem;
+  position: relative;
+  transition: background 0.2s, border-left-color 0.2s;
+  border-left: 2px solid transparent;
+}
+
+.project-card:hover {
+  background: var(--bg2);
+  border-left-color: var(--accent);
+}
+
+.project-tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--accent2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding: 3px 8px;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+}
+
+.project-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.project-desc {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stack-chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  padding: 3px 8px;
+  border: 1px solid var(--border2);
+  letter-spacing: 0.04em;
+}
+
+/* ACHIEVEMENTS */
+.achievements-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+}
+
+.achievement-icon {
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  color: var(--accent2);
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+}
+
+.achievement-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.achievement-text strong {
+  color: var(--text);
+  font-weight: 400;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* CONTACT */
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-left {}
+
+.contact-tagline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.contact-tagline em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.contact-sub {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 380px;
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8rem 1.5rem;
+  background: var(--bg);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.contact-link:hover { background: var(--bg3); }
+
+.contact-link-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-link-val {
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.contact-arrow {
+  font-size: 14px;
+  color: var(--border2);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s, background 0.2s;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+}
+
+.project-link:hover {
+  color: var(--accent);
+  background: var(--tag-bg);
+  border-color: var(--tag-border);
+}
+
+/* CONTACT BAR */
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 0 max(2rem, 8vw);
+}
+
+.contact-bar a {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  padding: 14px 20px;
+  border-right: 1px solid var(--border);
+  transition: color 0.2s, background 0.2s;
+}
+
+.contact-bar a:first-child { border-left: none; }
+.contact-bar a:last-child { border-right: none; }
+.contact-bar a:hover { color: var(--accent); background: var(--tag-bg); }
+footer {
+  padding: 2rem max(2rem, 8vw);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .exp-item { grid-template-columns: 1fr; gap: 0.8rem; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .hero-stats { gap: 2rem; }
+  .nav-links { display: none; }
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow { animation: fadeUp 0.6s ease both; }
+.hero-name { animation: fadeUp 0.6s 0.1s ease both; }
+.hero-title { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-desc { animation: fadeUp 0.6s 0.3s ease both; }
+.hero-actions { animation: fadeUp 0.6s 0.4s ease both; }
+.hero-stats { animation: fadeUp 0.6s 0.5s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">NK.dev</a>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <ul class="nav-links">
+      <li><a href="#experience" onclick="scrollToSection('experience');return false;">Experience</a></li>
+      <li><a href="#skills" onclick="scrollToSection('skills');return false;">Skills</a></li>
+      <li><a href="#projects" onclick="scrollToSection('projects');return false;">Projects</a></li>
+      <li><a href="#achievements" onclick="scrollToSection('achievements');return false;">Achievements</a></li>
+      <li><a href="#contact" onclick="scrollToSection('contact');return false;">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about" style="border-top: none;">
+  <div class="hero-eyebrow">Backend Engineer · India</div>
+  <h1 class="hero-name">Nishita<br><em>Kadian</em></h1>
+  <p class="hero-title">SDE-1 @ Swiggy · High-Scale Systems · Microservices</p>
+  <p class="hero-desc">
+    I build backend systems that handle <strong>millions of requests per minute</strong>.
+    At Swiggy, I've reduced downstream traffic by 65%+, shipped product launches to
+    millions of users, and owned peak-traffic reliability at scale.
+  </p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="window.open('mailto:nishita.kadian@gmail.com','_self')">Get in touch ↗</button>
+    <a href="https://in.linkedin.com/in/nishita-kadian-9542b7202" target="_blank" rel="noopener" class="btn-ghost">LinkedIn ↗</a>
+    <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" class="btn-ghost">LeetCode ↗</a>
+    <a href="https://github.com/nishita-kadian" target="_blank" rel="noopener" class="btn-ghost">GitHub ↗</a>
+    <a href="https://www.hackerrank.com/nkadian_be19" target="_blank" rel="noopener" class="btn-ghost">HackerRank ↗</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">SwiggStar Award</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">338K</div>
+      <div class="stat-label">RPM reduced by 65%</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">800+</div>
+      <div class="stat-label">LeetCode problems</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">9.2</div>
+      <div class="stat-label">CGPA, TIET</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Aug 2024 — Present</div>
+        <div class="exp-company">Swiggy</div>
+        <div class="exp-loc">Remote, India</div>
+        <div class="exp-award">★ SwiggStar Award (3×)<br><span style="font-size:10px;opacity:0.75;">Partner Rewards, IPL 2025, Deal Rush</span></div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Software Development Engineer 1</div>
+        <ul class="exp-bullets">
+          <li>Redesigned architecture using <strong>DAG</strong> to optimise data aggregation and resolve circular dependencies.</li>
+          <li>Architected an encoded data-aggregation contract eliminating redundant cross-service fanout, reducing downstream calls by <strong>65%</strong> (338K → 120K RPM).</li>
+          <li>Designed backend validation logic enabling app-side caching, reducing downstream traffic by <strong>66%</strong> (~200K RPM) with 70% client adoption.</li>
+          <li>Shipped product launches end-to-end, owning backend from design to go-live:
+            <ul class="exp-subbullets">
+              <li><strong>Swiggy Sixes</strong> — 40% order spike in the first hour</li>
+              <li><strong>Swiggy Black</strong> — premium tier launch</li>
+              <li><strong>Partner, Student & Corporate Rewards</strong> — 10× signup growth</li>
+              <li><strong>Deal Rush</strong> — drove a 2% overall platform order lift and 20% uplift in orders</li>
+            </ul>
+          </li>
+          <li>Cut noisy error log rate by <strong>~99%</strong> (80K+ → 500 errors), eliminating cascading exceptions.</li>
+          <li>Owned New Year's Eve peak-traffic readiness and incident mitigation, ensuring <strong>zero downtime</strong> during a major user onboarding surge.</li>
+          <li>Built and optimised Grafana observability dashboards, improving load time by <strong>84%</strong> (32s → 5s).</li>
+          <li>Enhanced on-call tooling with automation and AI summarization; authored HLDs, LLDs, and API documentation.</li>
+          <li>Mentored 2 aSDEs on backend engineering practices.</li>
+          <li>Conducted 15+ technical interviews including campus hiring and SDE-2 problem solving rounds.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Dec 2023 — Aug 2024</div>
+        <div class="exp-company">Stealth Startup</div>
+        <div class="exp-loc">Remote, India</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Software Engineer</div>
+        <ul class="exp-bullets">
+          <li>Designed and implemented a complete <strong>JWT-based authentication</strong> system with RESTful APIs.</li>
+          <li>Architected a <strong>webhook-driven real-time WhatsApp messaging</strong> backend platform.</li>
+          <li>Established secure deployment pipeline: <strong>Docker</strong>, <strong>AWS</strong> infrastructure, and <strong>AWS Secrets Manager</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Jan 2023 — Jul 2023</div>
+        <div class="exp-company">Addverb Technologies</div>
+        <div class="exp-loc">Noida, India</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Embedded Systems Engineer</div>
+        <ul class="exp-bullets">
+          <li>Ported <strong>Intel Up2 → TI TDA4VM</strong> for AGVs with Linux kernel and driver-level changes.</li>
+          <li>Contributed to <strong>ROS motion stack</strong> development and hardware bring-up.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));">
+    <div class="skill-group">
+      <div class="skill-group-name">Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Golang</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">TypeScript</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Frameworks</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">Spring Boot</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Cloud & Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Grafana</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Linux</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-name">Concepts</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Microservices</span>
+        <span class="skill-tag">System Design</span>
+        <span class="skill-tag">DSA</span>
+        <span class="skill-tag">Distributed Systems</span>
+        <span class="skill-tag">OS</span>
+        <span class="skill-tag">Computer Networks</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Projects</h2>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-tag">Open Source · 2024</div>
+      <div class="project-name">Obsidian Google Drive Sync</div>
+      <p class="project-desc">Built a community plugin for Obsidian that syncs notes to Google Drive, preserving note hierarchy across devices. Implemented CRUD operations using Google Drive API v3.</p>
+      <div class="project-stack">
+        <span class="stack-chip">TypeScript</span>
+        <span class="stack-chip">Google Drive v3 API</span>
+        <span class="stack-chip">Obsidian Plugin</span>
+      </div>
+      <a href="https://github.com/nishita-kadian/gdrive-sync-plugin" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">Full Stack · LeetCode-style · 2023</div>
+      <div class="project-name">Code Judge</div>
+      <p class="project-desc">Coding challenge platform modelled on LeetCode with user auth, session management, a fancy live code editor with syntax highlighting, and submission tracking. Dockerized and hosted on AWS.</p>
+      <div class="project-stack">
+        <span class="stack-chip">Django</span>
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">Docker</span>
+        <span class="stack-chip">AWS</span>
+      </div>
+      <a href="https://github.com/nishita-kadian/algo_ide" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">Capstone · Deep Learning · 2023</div>
+      <div class="project-name">High-Resolution FPM via Deep Learning</div>
+      <p class="project-desc">UNet-based network for Fourier Ptychographic Microscopy, recombines multi-image stacks into high-resolution, wide-field samples. Can be used to get high-resolution samples of Malaria slides.</p>
+      <div class="project-stack">
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">MATLAB</span>
+        <span class="stack-chip">UNet</span>
+        <span class="stack-chip">Deep Learning</span>
+      </div>
+      <a href="https://github.com/nishita-kadian/Project-Reports/blob/main/DL%20based%20High%20Reso%20FPM/CAPSTONE%20PROJECT.pdf" target="_blank" rel="noopener" class="project-link">View Report ↗</a>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">Backend · 2023</div>
+      <div class="project-name">MovieExplorer</div>
+      <p class="project-desc">RESTful movie recommendation service backed by cleaned Grouplens data in PostgreSQL. Tackles decision fatigue from endless scrolling, recommends movies by genre and highest IMDb rating, with user login and a watched-list so you never get recommended something you've already seen.</p>
+      <div class="project-stack">
+        <span class="stack-chip">Flask</span>
+        <span class="stack-chip">PostgreSQL</span>
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">HTML/CSS/JS</span>
+      </div>
+      <a href="https://github.com/nishita-kadian/MovieExplorer" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Achievements</h2>
+  </div>
+  <div class="achievements-list">
+    <div class="achievement-item">
+      <div class="achievement-icon">★</div>
+      <div class="achievement-text">
+        <strong>SwiggStar Award (3×)</strong>
+        Recognised at Swiggy for "Move Fast, Break Barriers &amp; Deliver Results" — for Partner, Student &amp; Corporate Rewards, IPL 2025, and Deal Rush.
+      </div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">◈</div>
+      <div class="achievement-text">
+        <strong>Runners-Up — Digital Health Hackathon 2.0</strong>
+        Issued by Digital Health Hackathon 2.0 organized by Dr. Reddy's Laboratories Ltd. · Jan 2023. Leveraged and integrated Google Vision API to rate medicinal posters on different parameters to help Dr. Reddy's make better targeted advertisements for their customers.
+      </div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">★</div>
+      <div class="achievement-text">
+        <strong>TIET Merit Scholarship (2×)</strong>
+        Awarded for academic excellence — CGPA 9.39 (2020–21) & 9.22 (2021–22).
+      </div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">⌥</div>
+      <div class="achievement-text">
+        <strong>800+ LeetCode Problems</strong>
+        Consistent competitive programming practice, solutions hosted on GitHub. <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">LeetCode profile ↗</a> · <a href="https://nishita-kadian.github.io/leetcode/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Solutions ↗</a>
+      </div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">◈</div>
+      <div class="achievement-text">
+        <strong>HackerRank Gold Badges &amp; Certifications</strong>
+        Earned maximum star gold badges in Problem Solving, C++ and SQL. Certified in <a href="https://www.hackerrank.com/certificates/c595bd823190" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Problem Solving (Basic) ↗</a> and <a href="https://www.hackerrank.com/certificates/02d1d8d60eaf" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Intermediate ↗</a>.
+      </div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">◈</div>
+      <div class="achievement-text">
+        <strong>Hackathon Participation</strong>
+        Innovaccer HackerCamp, Uber HackTag 2.0, Flipkart Grid 4.0, Tata Imagination Challenge, and more.
+      </div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">◈</div>
+      <div class="achievement-text">
+        <strong>Certifications</strong>
+        Harvard CS50, Java Fundamentals (Scaler), Spring Boot (Amigoscode), HackerRank Problem Solving.
+      </div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">◉</div>
+      <div class="achievement-text">
+        <strong>State-level Taekwondo Gold Medalist</strong>
+        Chandigarh State Open + Education Dept. State Schools Tournament.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Contact</h2>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h3 class="contact-tagline">Let's build something<br><em>worth talking about.</em></h3>
+      <p class="contact-sub">Open to backend-heavy SDE-2 roles at product companies. If your team works on high-scale systems, I'd love to chat.</p>
+    </div>
+    <div class="contact-right">
+      <button class="contact-link" onclick="window.open('mailto:nishita.kadian@gmail.com','_self')" style="background:var(--bg);width:100%;text-align:left;border:none;cursor:pointer;">
+        <span class="contact-link-label">Email</span>
+        <span class="contact-arrow">↗</span>
+      </button>
+      <a href="https://in.linkedin.com/in/nishita-kadian-9542b7202" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a href="https://github.com/nishita-kadian" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">GitHub</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a href="https://leetcode.com/NK04/" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">LeetCode</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a href="https://www.hackerrank.com/nkadian_be19" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-label">HackerRank</span>
+        <span class="contact-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-text">© 2025 Nishita Kadian</span>
+  <span class="footer-text">Built with intention.</span>
+</footer>
+
+<script>
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+</script>
+</body>
+</html>
